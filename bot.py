@@ -26,4 +26,4 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
 
 def run():
-    client.run("NDY4MDk3MzkxOTcxNzk0OTU1.Di8Lxg.L75CuhjH-FDPI8fg5hPEWlUJyRs")
+    client.run("code")
