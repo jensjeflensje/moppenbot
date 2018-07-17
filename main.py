@@ -78,12 +78,13 @@ def runbot():
 #    words = Words.query.first()
 #    print(words)
 #    words.woordenlijst = "kanker kkr mogool mongool kut godverdomme bek reet lul kootzak eikel slet hoer www. www .nl porno"
-
-workerbot = threading.Thread(target=runbot)
-workerbot.start()
-words = Words.query.first()
-print(words)
-words = str(words)
-words = words.split(" ")
-print(words)
-app.run(port=10000, host="0.0.0.0")
+if __name__ == '__main__':
+    workerbot = threading.Thread(target=runbot)
+    workerbot.start()
+    global words
+    words = Words.query.first()
+    print(words)
+    words = str(words)
+    words = words.split(" ")
+    print(words)
+    app.run(port=10000, host="0.0.0.0")
