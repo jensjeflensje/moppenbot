@@ -24,8 +24,6 @@ async def on_message(message):
         randomint = random.randint(1, len(all))
         print(randomint)
         text = Moppen.query.all()[randomint - 1]
-        text = str(text)
-        text = text.split(",")
-        embed=discord.Embed(title="Mop " + str(randomint), description=str(text[0]), color=0x00ff40)
-        embed.set_footer(text=text[1])
+        embed=discord.Embed(title="Mop " + str(randomint), description=str(text.joke), color=0x00ff40)
+        embed.set_footer(text=text.author)
         await client.send_message(message.channel, embed=embed)
