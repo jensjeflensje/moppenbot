@@ -48,6 +48,11 @@ def index():
 def add():
     mop = request.form.get("joke")
     auteur = request.form.get("name")
+    words = "kanker kkr mogool mongool kut godverdomme bek reet lul kootzak eikel slet hoer www. www .nl porno"
+    print(words)
+    words = str(words)
+    words = words.split(" ")
+    print(words)
     if mop != "":
         badwords = 0
         for mopje in mop.split(" "):
@@ -67,24 +72,9 @@ def add():
             print(Moppen.query.all())
     return "<meta http-equiv='refresh' content='0; url=/' />"
 
-def runbot():
-    bot.run()
+thread = threading.Thread(target=lambda: discordbot.run())
+thread.start()
 
-#my_file = Path("data.sqlite")
-#if my_file.is_file():
-#    test = "test"
-#else:
-#    db.create_all()
-#    words = Words.query.first()
-#    print(words)
-#    words.woordenlijst = "kanker kkr mogool mongool kut godverdomme bek reet lul kootzak eikel slet hoer www. www .nl porno"
 if __name__ == '__main__':
-    workerbot = threading.Thread(target=runbot)
-    workerbot.start()
     global words
-    words = Words.query.first()
-    print(words)
-    words = str(words)
-    words = words.split(" ")
-    print(words)
     app.run(port=10000, host="0.0.0.0")
