@@ -8,6 +8,11 @@ import random
 
 client = discord.Client()
 
+
+
+def run():
+    client.run("code")
+
 @client.event
 async def on_ready():
     print("Bot is ready!")
@@ -24,6 +29,3 @@ async def on_message(message):
         embed=discord.Embed(title="Mop " + str(randomint), description=str(text[0]), color=0x00ff40)
         embed.set_footer(text=text[1])
         await client.send_message(message.channel, embed=embed)
-
-def run():
-    client.run("code")
